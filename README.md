@@ -1,4 +1,4 @@
-# emoji.cr
+# emoji.cr [![Build Status](https://travis-ci.org/veelenga/emoji.cr.svg?branch=master)](https://travis-ci.org/veelenga/emoji.cr)
 
 Emoji library for Crystal. Inspired by [Emoji for Python](https://github.com/carpedm20/emoji)
 
