@@ -7,4 +7,4 @@ install: |
   sudo apt-get install crystal
 
 script:
-  - rake && crystal spec
+  - crystal spec
