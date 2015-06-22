@@ -22,6 +22,9 @@ require "emoji.cr"
 
 TODO: Write usage here for library
 
+## Resources
+- [Emoji Cheat Sheet](http://www.emoji-cheat-sheet.com/)
+
 ## Contributing
 
 1. Fork it ( https://github.com/veelenga/emoji.cr/fork )
