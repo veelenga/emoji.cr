@@ -2,9 +2,12 @@ require "../spec_helper"
 
 module Emoji
   describe CodepointMap do
-    describe "#include?" do
+    name = ":cat:"
+    codepoint = "\u{1f431}"
+
+    describe "#includes?" do
       it "returns true for existed codename" do
-        CodepointMap.new.includes?(":cat:").should be_true
+        CodepointMap.new.includes?(name).should be_true
       end
 
       it "returns false for missed codename" do
@@ -14,7 +17,7 @@ module Emoji
 
     describe "#[]" do
       it "returns codepoint if such name exists" do
-        CodepointMap.new[":cat:"].should_not be nil
+        CodepointMap.new[name].should eq(codepoint)
       end
 
       it "raises exeception otherwise" do
