@@ -1,5 +1,5 @@
 require "./emoji/*"
 
 module Emoji
-  # TODO Put your code here
+  VERSION = "0.0.1"
 end
