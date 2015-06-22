@@ -2,8 +2,6 @@
 
 Emoji library for Crystal. Inspired by [Emoji for Python](https://github.com/carpedm20/emoji)
 
-**Work in progress.**
-
 ## Installation
 
 Add it to `Projectfile`
@@ -19,12 +17,13 @@ end
 ```crystal
 require "emoji.cr"
 
-puts Emoji.emojize("I :heart: Crystal:exclamation:")
+puts Emoji.emojize("I like :soccer: and :bicyclist:")
 ```
 
 ## Demo
-![](screen/i_love_crystal\!.png)
+![](screen/demo.png)
 
+**Note:** to see the result in terminal, you need to install appropriate fonts. I used [ttf-symbola](https://www.archlinux.org/packages/?name=ttf-symbola) on Arch Linux.
 
 ## Resources
 - [Emoji Cheat Sheet](http://www.emoji-cheat-sheet.com/)
