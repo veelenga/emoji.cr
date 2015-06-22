@@ -23,7 +23,7 @@ puts Emoji.emojize("I like :soccer: and :bicyclist:")
 ## Demo
 ![](screen/demo.png)
 
-**Note:** to see the result in terminal, you need to install appropriate fonts. I used [ttf-symbola](https://www.archlinux.org/packages/?name=ttf-symbola) on Arch Linux.
+**Note:** appropriate [fonts](http://users.teilar.gr/~g1951d/) required.
 
 ## Resources
 - [Emoji Cheat Sheet](http://www.emoji-cheat-sheet.com/)
