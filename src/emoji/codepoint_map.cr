@@ -1,7 +1,7 @@
 require "json"
 
 module Emoji
-  macro load_codepoint_map(data)
+  macro load_codepoint_map()
     # Represents a codepoint map with the following format:
     #`codepoint_name => codepoint`
     #
@@ -13,7 +13,8 @@ module Emoji
     # **Note**: list of available codepoint names you can
     # find [here](http://www.emoji-cheat-sheet.com/).
     class CodepointMap
-      def initialize(@data = {{data}})
+      def initialize()
+        @data = {{ run("../../utils/emoji_map.cr").id }}
       end
 
       def [](name: String)
@@ -28,34 +29,5 @@ module Emoji
       end
     end
   end
-
-  class JSONEmoji
-    json_mapping({
-      emoji:       {type: String, nilable: true},
-      description: {type: String, nilable: true},
-      aliases:     {type: Array(String)},
-      tags:        {type: Array(String)}
-    })
-
-    def initialize(@emoji : String, @aliases: Array(String))
-    end
-
-    def self.load(path)
-      json_emojis = Array(JSONEmoji).from_json(File.read(path))
-
-      # Generate codepoint map
-      codepoint_map = {} of String => String
-      json_emojis.each do |json_emoji|
-        codepoint = json_emoji.emoji
-        if codepoint
-          json_emoji.aliases.each do |name|
-            codepoint_map[":#{name}:"] = codepoint
-          end
-        end
-      end
-      codepoint_map
-    end
-  end
-
-  load_codepoint_map(JSONEmoji.load("emoji/db/emoji.json"))
+  load_codepoint_map
 end
