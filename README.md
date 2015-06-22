@@ -18,9 +18,13 @@ end
 
 ```crystal
 require "emoji.cr"
+
+puts Emoji.emojize("I :heart: Crystal:exclamation:")
 ```
 
-TODO: Write usage here for library
+## Demo
+![](screen/i_love_crystal\!.png)
+
 
 ## Resources
 - [Emoji Cheat Sheet](http://www.emoji-cheat-sheet.com/)

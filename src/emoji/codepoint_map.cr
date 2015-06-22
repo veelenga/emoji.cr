@@ -48,8 +48,9 @@ module Emoji
       json_emojis.each do |json_emoji|
         codepoint = json_emoji.emoji
         if codepoint
-          name = json_emoji.aliases.first
-          codepoint_map[":#{name}:"] = codepoint
+          json_emoji.aliases.each do |name|
+            codepoint_map[":#{name}:"] = codepoint
+          end
         end
       end
       codepoint_map
