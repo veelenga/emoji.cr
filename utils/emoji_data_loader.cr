@@ -16,15 +16,10 @@ end
 def load(json)
   json_emojis = Array(JSONEmoji).from_json(json)
 
-  # Generate codepoint map
+  # Generate emoji map
   emoji_map = {} of String => String
   json_emojis.each do |json_emoji|
     emoji = json_emoji.emoji
-    #codepoint = ""
-    #emoji = json_emoji.emoji
-    #emoji && emoji.each_char do |char|
-      #codepoint += "_u{#{char.ord.to_s(16)}}"
-    #end
     if emoji
       json_emoji.aliases.each do |name|
         emoji_map[":#{name}:"] = emoji

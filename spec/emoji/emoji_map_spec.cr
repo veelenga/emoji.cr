@@ -2,11 +2,8 @@ require "../spec_helper"
 
 module Emoji
   describe EMOJI_MAP do
-    name = ":cat:"
-    codepoint = "🐱"
-
     it "has #{name} codepoint name" do
-      Emoji::EMOJI_MAP[name].should eq codepoint
+      Emoji::EMOJI_MAP[":cat:"].should eq "🐱"
     end
   end
 end

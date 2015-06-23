@@ -4,7 +4,7 @@
 # crystal this_file_name.cr
 # ```
 
-macro generate_source(module_name, codepoint_map)
+macro generate_source(module_name, emoji_map)
 <<-EOT
 # THIS IS AUTOMATICALLY GENERATED FILE.
 # DO NOT EDIT IT MANUALLY.
@@ -18,8 +18,8 @@ module {{module_name.id}}
   # ```
   # **Note**: list of available emoji names you can
   # find [here](http://www.emoji-cheat-sheet.com/).
-  EMOJI_MAP = \{{% for name in codepoint_map.keys.sort %}
-    {{name}} => {{codepoint_map[name]}},{% end %}
+  EMOJI_MAP = \{{% for name in emoji_map.keys.sort %}
+    {{name}} => {{emoji_map[name]}},{% end %}
   }
 end
 EOT

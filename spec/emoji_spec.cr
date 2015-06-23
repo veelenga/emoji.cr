@@ -44,5 +44,6 @@ describe "Emoji" do
     it_emojizes(":+1:", "#{thumb}")
 
     it_emojizes("I :heart: :gem:", "I #{love} #{crystal}")
+    it_emojizes(":gem::cat::+1:", "#{crystal}#{cat}#{thumb}")
   end
 end
