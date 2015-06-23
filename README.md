@@ -15,7 +15,7 @@ end
 ## Usage
 
 ```crystal
-require "emoji.cr"
+require "emoji"
 
 puts Emoji.emojize("I like :soccer: and :bicyclist:")
 ```
