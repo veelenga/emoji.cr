@@ -2,13 +2,13 @@
 # DO NOT EDIT IT MANUALLY.
 #
 module Emoji
-  # Represents a codepoint map with the following format:
-  #`codepoint_name => codepoint`
+  # Represents an emoji map with the following format:
+  #`emoji_name => emoji_itself`
   #
   # ```
   # puts Emoji::EMOJI_MAP[":cat:"]? # => 🐱
   # ```
-  # **Note**: list of available codepoint names you can
+  # **Note**: list of available emoji names you can
   # find [here](http://www.emoji-cheat-sheet.com/).
   EMOJI_MAP = {
     ":+1:" => "👍",

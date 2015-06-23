@@ -10,13 +10,13 @@ macro generate_source(module_name, codepoint_map)
 # DO NOT EDIT IT MANUALLY.
 #
 module {{module_name.id}}
-  # Represents a codepoint map with the following format:
-  #`codepoint_name => codepoint`
+  # Represents an emoji map with the following format:
+  #`emoji_name => emoji_itself`
   #
   # ```
   # puts {{module_name.id}}::EMOJI_MAP[":cat:"]? # => 🐱
   # ```
-  # **Note**: list of available codepoint names you can
+  # **Note**: list of available emoji names you can
   # find [here](http://www.emoji-cheat-sheet.com/).
   EMOJI_MAP = \{{% for name in codepoint_map.keys.sort %}
     {{name}} => {{codepoint_map[name]}},{% end %}
