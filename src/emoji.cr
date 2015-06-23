@@ -6,7 +6,7 @@ module Emoji
   @@map = Emoji::CodepointMap.new
 
   def self.emojize(s)
-    s.scan(/:[\S]+:/).map { |data| data[0] }
+    s.scan(/:[^(: )]+?:/).map { |data| data[0] }
       .uniq!
       .each do |name|
         s = s.gsub(name, @@map[name]) if @@map.includes? name

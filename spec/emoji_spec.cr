@@ -15,11 +15,19 @@ describe "Emoji" do
   describe ".emojize" do
     cat  = "🐱"
 
-    it_emojizes(":cat:", "#{cat}")
     it_emojizes(":cat:s are awesome", "#{cat}s are awesome")
     it_emojizes("Sweet :cat:s", "Sweet #{cat}s")
     it_emojizes("I have a :cat:", "I have a #{cat}")
     it_emojizes("Why :cat:s? 'cause :cat:s rock", "Why #{cat}s? 'cause #{cat}s rock")
+    it_emojizes("Talk to your :cat:: say 'meow'", "Talk to your #{cat}: say 'meow'")
+    it_emojizes("Who rocks? For sure ::cat:s", "Who rocks? For sure :#{cat}s")
+
+    it_emojizes(":cat:", "#{cat}")
+    it_emojizes("::cat::", ":#{cat}:")
+    it_emojizes("-:cat:-", "-#{cat}-")
+    it_emojizes(" :cat: ", " #{cat} ")
+    it_emojizes(": :cat: ", ": #{cat} ")
+    it_emojizes(":cat: :", "#{cat} :")
 
     it_emojizes(":thumbsup:", "👍")
     it_emojizes(":+1:", "👍")
