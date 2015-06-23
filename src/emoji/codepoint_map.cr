@@ -13,8 +13,7 @@ module Emoji
     # **Note**: list of available codepoint names you can
     # find [here](http://www.emoji-cheat-sheet.com/).
     class CodepointMap
-      def initialize()
-        @data = {{ run("../../utils/emoji_map.cr").id }}
+      def initialize(@data = {{ run("../../utils/emoji_map.cr").id }})
       end
 
       def [](name: String)

@@ -1,8 +1,8 @@
 require "./spec_helper"
 
-def it_emojizes(actual, expected)
-  it "emojizes string '#{actual}' to '#{expected}'" do
-    Emoji.emojize(actual).should eq expected
+def it_emojizes(before, after)
+  it "emojizes string '#{before}' to '#{after}'" do
+    Emoji.emojize(before).should eq after
   end
 end
 
@@ -13,7 +13,10 @@ describe "Emoji" do
   end
 
   describe ".emojize" do
-    cat  = "🐱"
+    cat     = "🐱"
+    thumb   = "👍"
+    love    = "❤️"
+    crystal = "💎"
 
     it_emojizes(":cat:s are awesome", "#{cat}s are awesome")
     it_emojizes("Sweet :cat:s", "Sweet #{cat}s")
@@ -28,10 +31,18 @@ describe "Emoji" do
     it_emojizes(" :cat: ", " #{cat} ")
     it_emojizes(": :cat: ", ": #{cat} ")
     it_emojizes(":cat: :", "#{cat} :")
+    it_emojizes(":cat  ", ":cat  ")
+    it_emojizes(":cat  :", ":cat  :")
+    it_emojizes(":cat ::", ":cat ::")
+    it_emojizes("cat: :", "cat: :")
+    it_emojizes(": :", ": :")
+    it_emojizes("::::", "::::")
 
-    it_emojizes(":thumbsup:", "👍")
-    it_emojizes(":+1:", "👍")
+    it_emojizes(":no_such_emoji:", ":no_such_emoji:")
 
-    it_emojizes("I :heart: :gem:", "I ❤️ 💎")
+    it_emojizes(":thumbsup:", "#{thumb}")
+    it_emojizes(":+1:", "#{thumb}")
+
+    it_emojizes("I :heart: :gem:", "I #{love} #{crystal}")
   end
 end
