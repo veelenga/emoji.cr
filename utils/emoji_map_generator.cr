@@ -6,18 +6,18 @@
 
 macro generate_source(module_name, emoji_map)
 <<-EOT
-# THIS IS AUTOMATICALLY GENERATED FILE.
+# THIS IS AN AUTOMATICALLY GENERATED FILE.
+#
 # DO NOT EDIT IT MANUALLY.
 #
 module {{module_name.id}}
-  # Represents an emoji map with the following format:
-  #`emoji_name => emoji_itself`
+  # Represents an emoji map:
   #
   # ```
-  # puts {{module_name.id}}::EMOJI_MAP[":cat:"]? # => 🐱
+  # p {{module_name.id}}::EMOJI_MAP[":cat:"]? # => 🐱
   # ```
-  # **Note**: list of available emoji names you can
-  # find [here](http://www.emoji-cheat-sheet.com/).
+  # **Note**: list of available emojis you can find at
+  # [Emoji Cheat Sheet](http://www.emoji-cheat-sheet.com/).
   EMOJI_MAP = \{{% for name in emoji_map.keys.sort %}
     {{name}} => {{emoji_map[name]}},{% end %}
   }

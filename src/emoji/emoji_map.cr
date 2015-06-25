@@ -1,15 +1,15 @@
-# THIS IS AUTOMATICALLY GENERATED FILE.
+# THIS IS AN AUTOMATICALLY GENERATED FILE.
+#
 # DO NOT EDIT IT MANUALLY.
 #
 module Emoji
-  # Represents an emoji map with the following format:
-  #`emoji_name => emoji_itself`
+  # Represents an emoji map:
   #
   # ```
-  # puts Emoji::EMOJI_MAP[":cat:"]? # => 🐱
+  # p Emoji::EMOJI_MAP[":cat:"]? # => 🐱
   # ```
-  # **Note**: list of available emoji names you can
-  # find [here](http://www.emoji-cheat-sheet.com/).
+  # **Note**: list of available emojis you can find at
+  # [Emoji Cheat Sheet](http://www.emoji-cheat-sheet.com/).
   EMOJI_MAP = {
     ":+1:" => "👍",
     ":-1:" => "👎",
