@@ -4,19 +4,13 @@ require "http"
 class JSONEmoji
   json_mapping({
     emoji:       {type: String, nilable: true},
-    description: {type: String, nilable: true},
-    aliases:     {type: Array(String)},
-    tags:        {type: Array(String)}
+    aliases:     {type: Array(String)}
   })
-
-  def initialize(@emoji : String, @aliases: Array(String))
-  end
 end
 
-def load(json)
+def get_emoji_map(json)
   json_emojis = Array(JSONEmoji).from_json(json)
 
-  # Generate emoji map
   emoji_map = {} of String => String
   json_emojis.each do |json_emoji|
     emoji = json_emoji.emoji
@@ -29,5 +23,6 @@ def load(json)
   emoji_map
 end
 
-response = HTTP::Client.get(ARGV[0])
-puts load(response.body)
+URL = "https://raw.githubusercontent.com/github/gemoji/master/db/emoji.json"
+response = HTTP::Client.get URL
+puts get_emoji_map response.body

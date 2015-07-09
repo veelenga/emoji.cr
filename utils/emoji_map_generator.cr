@@ -3,6 +3,7 @@
 # ```
 # crystal this_file_name.cr
 # ```
+require "option_parser"
 
 macro generate_source(module_name, emoji_map)
 <<-EOT
@@ -25,15 +26,37 @@ end
 EOT
 end
 
-SOURCE_PATH = "src/emoji/emoji_map.cr"
-VERBOSE = true
-
-macro create_emoji_map(json_url)
-  source = generate_source("Emoji", {{run("./emoji_data_loader.cr", json_url).id}})
-  VERBOSE && puts source
-  File.write(SOURCE_PATH, source)
-  puts "=> FILE GENERATED: #{SOURCE_PATH}"
+macro create_source_file(path, verbose)
+  source = generate_source("Emoji", {{run("./emoji_data_loader.cr").id}})
+  puts source if {{ verbose }}
+  File.write({{path}}, source)
+  puts "=> FILE GENERATED: #{ {{ path }} }"
 end
 
-create_emoji_map "https://raw.githubusercontent.com/github/gemoji/master/db/emoji.json"
+USAGE = <<-USAGE
+Usage: emoji_map_generator [option]
+Option:
+    --path {filepath}      path of source file to generate
+    --verbose, -v          verbose output
+    --help, -h             show this help
+USAGE
 
+path = "src/emoji/emoji_map.cr"
+verbose = false
+
+option_parser = OptionParser.parse ARGV do |opts|
+  opts.on "-h", "--help" do |flag|
+    puts USAGE
+    exit 0
+  end
+
+  opts.on "-v", "--verbose" do
+    verbose = true
+  end
+
+  opts.on "-p", "--path" do |p|
+    path = p
+  end
+end
+
+create_source_file path, verbose
