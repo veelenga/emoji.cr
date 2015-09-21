@@ -4,12 +4,13 @@ Emoji library for Crystal. Inspired by [Emoji for Python](https://github.com/car
 
 ## Installation
 
-Add it to `Projectfile`
+As a dependency in `shards.yml`:
 
-```crystal
-deps do
-  github "veelenga/emoji.cr"
-end
+```yaml
+dependencies:
+  emoji:
+    github: veelenga/emoji.cr
+    branch: master
 ```
 
 ## Usage
@@ -17,13 +18,8 @@ end
 ```crystal
 require "emoji"
 
-puts Emoji.emojize("I like :soccer: and :bicyclist:")
+Emoji.emojize("I :heart: :gem:") # => "I ❤️ 💎"
 ```
-
-## Demo
-![](screen/demo.png)
-
-**Note:** appropriate [fonts](http://users.teilar.gr/~g1951d/) required.
 
 ## Resources
 - [Emoji Cheat Sheet](http://www.emoji-cheat-sheet.com/)

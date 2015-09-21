@@ -19,6 +19,7 @@ module {{module_name.id}}
   # ```
   # **Note**: list of available emojis you can find at
   # [Emoji Cheat Sheet](http://www.emoji-cheat-sheet.com/).
+
   EMOJI_MAP = \{{% for name in emoji_map.keys.sort %}
     {{name}} => {{emoji_map[name]}},{% end %}
   }

@@ -15,3 +15,4 @@ module Emoji
     s
   end
 end
+
