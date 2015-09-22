@@ -4,7 +4,7 @@ Emoji library for Crystal. Inspired by [Emoji for Python](https://github.com/car
 
 ## Installation
 
-As a dependency in `shards.yml`:
+As a dependency in `shard.yml`:
 
 ```yaml
 dependencies:
