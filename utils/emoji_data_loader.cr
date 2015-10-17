@@ -2,9 +2,9 @@ require "json"
 require "http"
 
 class JSONEmoji
-  json_mapping({
-    emoji:       {type: String, nilable: true},
-    aliases:     {type: Array(String)}
+  JSON.mapping({
+    emoji:   {type: String, nilable: true},
+    aliases: {type: Array(String)},
   })
 end
 
