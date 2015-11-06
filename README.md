@@ -18,8 +18,12 @@ dependencies:
 ```crystal
 require "emoji"
 
-Emoji.emojize("I :heart: :gem:") # => "I ❤️ 💎"
+puts Emoji.emojize("I :heart: :beer: and :football:")
 ```
+
+Will print the following in console:
+
+![](assets/screen.png)
 
 ## Resources
 - [Emoji Cheat Sheet](http://www.emoji-cheat-sheet.com/)
