@@ -21,7 +21,7 @@ module {{module_name.id}}
   # [Emoji Cheat Sheet](http://www.emoji-cheat-sheet.com/).
 
   EMOJI_MAP = \{{% for name in emoji_map.keys.sort %}
-    {{name}} => {{emoji_map[name]}},{% end %}
+                {{name}} => {{emoji_map[name]}},{% end %}
   }
 end
 EOT
@@ -46,18 +46,18 @@ path = "src/emoji/emoji_map.cr"
 verbose = false
 
 option_parser = OptionParser.parse ARGV do |opts|
-  opts.on "-h", "--help" do |flag|
-    puts USAGE
-    exit 0
-  end
+                  opts.on "-h", "--help" do |flag|
+                    puts USAGE
+                    exit 0
+                  end
 
-  opts.on "-v", "--verbose" do
-    verbose = true
-  end
+                  opts.on "-v", "--verbose" do
+                    verbose = true
+                  end
 
-  opts.on "-p", "--path" do |p|
-    path = p
-  end
-end
+                  opts.on "-p", "--path" do |p|
+                    path = p
+                  end
+                end
 
 create_source_file path, verbose

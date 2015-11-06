@@ -7,15 +7,14 @@ def it_emojizes(before, after)
 end
 
 describe "Emoji" do
-
   it "has version" do
     Emoji::VERSION.should_not be nil
   end
 
   describe ".emojize" do
-    cat     = "🐱"
-    thumb   = "👍"
-    love    = "❤️"
+    cat = "🐱"
+    thumb = "👍"
+    love = "❤️"
     crystal = "💎"
 
     it_emojizes(":cat:s are awesome", "#{cat}s are awesome")
