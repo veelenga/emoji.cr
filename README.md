@@ -25,6 +25,18 @@ Will print the following in console:
 
 ![](assets/screen.png)
 
+### Binary
+
+You may also compile and use `emojize` binary that just prints to console emojized string:
+
+```sh
+$ crystal build bin/emojize
+$ ./emojize It will boom: :boom:
+```
+
+![](assets/boom.png)
+
+
 ## Resources
 - [Emoji Cheat Sheet](http://www.emoji-cheat-sheet.com/)
 

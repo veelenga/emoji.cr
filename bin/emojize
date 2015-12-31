@@ -1,0 +1,3 @@
+require "../src/emoji.cr"
+
+puts Emoji.emojize ARGV.join(" ") unless ARGV.empty?
