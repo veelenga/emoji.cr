@@ -10,6 +10,7 @@ module Emoji
   # ```
   # **Note**: list of available emojis you can find at
   # [Emoji Cheat Sheet](http://www.emoji-cheat-sheet.com/).
+
   EMOJI_MAP = {
     ":+1:"                              => "👍",
     ":-1:"                              => "👎",
@@ -476,6 +477,7 @@ module Emoji
     ":man:"                             => "👨",
     ":man_with_gua_pi_mao:"             => "👲",
     ":man_with_turban:"                 => "👳",
+    ":mandarin:"                        => "🍊",
     ":mans_shoe:"                       => "👞",
     ":maple_leaf:"                      => "🍁",
     ":mask:"                            => "😷",
@@ -563,6 +565,7 @@ module Emoji
     ":open_hands:"                      => "👐",
     ":open_mouth:"                      => "😮",
     ":ophiuchus:"                       => "⛎",
+    ":orange:"                          => "🍊",
     ":orange_book:"                     => "📙",
     ":outbox_tray:"                     => "📤",
     ":ox:"                              => "🐂",
