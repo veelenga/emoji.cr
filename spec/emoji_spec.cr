@@ -1,8 +1,14 @@
 require "./spec_helper"
 
-def it_emojizes(before, after)
-  it "emojizes string '#{before}' to '#{after}'" do
-    Emoji.emojize(before).should eq after
+def it_emojizes(from, to)
+  it "emojizes string '#{from}' to '#{to}'" do
+    Emoji.emojize(from).should eq to
+  end
+end
+
+def it_sanitizes(name, from, to = "")
+  it "sanitizes '#{name}'" do
+    Emoji.sanitize(from).should eq to
   end
 end
 
@@ -44,5 +50,17 @@ describe "Emoji" do
 
     it_emojizes("I :heart: :gem:", "I #{love} #{crystal}")
     it_emojizes(":gem::cat::+1:", "#{crystal}#{cat}#{thumb}")
+  end
+
+  describe ".sanitize" do
+    it_sanitizes(":soccer:", "⚽ is cool", " is cool")
+
+    it "does not change regular string" do
+      Emoji.sanitize("12 crazy fists!").should eq "12 crazy fists!"
+    end
+
+    Emoji::EMOJI_MAP.each do |key, codepoint|
+      it_sanitizes(key, "#{codepoint}")
+    end
   end
 end

@@ -25,6 +25,13 @@ Will print the following in console:
 
 ![](assets/screen.png)
 
+Also it is possible to remove all emoji from the string:
+
+```crystal
+str = Emoji.emojize("Girl on :fire:")
+Emoji.sanitize(str) #=> "Girl on "
+```
+
 ### Binary
 
 You may also compile and use `emojize` binary that just prints to console emojized string:
