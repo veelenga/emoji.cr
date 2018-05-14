@@ -45,8 +45,8 @@ USAGE
 path = "src/emoji/emoji_map.cr"
 verbose = false
 
-option_parser = OptionParser.parse ARGV do |opts|
-  opts.on "-h", "--help" do |flag|
+OptionParser.parse ARGV do |opts|
+  opts.on "-h", "--help" do
     puts USAGE
     exit 0
   end
