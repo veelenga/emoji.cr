@@ -1,7 +1,8 @@
 /.deps/
-/libs/
+/lib/
 /.crystal/
 /doc/
+/bin
 
 
 # Libraries don't need dependency lock
