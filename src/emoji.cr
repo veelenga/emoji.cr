@@ -1,7 +1,7 @@
 require "./emoji/*"
 
 module Emoji
-  VERSION = "0.2.0"
+  VERSION = "0.2.1"
 
   EMOJI_REGEX = /[\x{1f000}-\x{1ffff}\x{2049}-\x{3299}\x{a9}\x{ae}\x{fe0f}\x{203c}]+|[0-9#]\x{fe0f}\x{20e3}/
 
