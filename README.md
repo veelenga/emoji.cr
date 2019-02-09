@@ -36,15 +36,16 @@ Emoji.sanitize(str) #=> "Girl on "
 
 You may also compile and use `emojize` binary that just prints to console emojized string:
 
-```sh
-$ crystal build bin/emojize
-$ ./emojize It will boom: :boom:
+```console
+crystal build bin/emojize
+./emojize It will boom: :boom:
 ```
 
 ![](assets/boom.png)
 
-
 ## Resources
+
+- [Unicode® Technical Standard #51](http://www.unicode.org/reports/tr51/)
 - [Emoji Cheat Sheet](http://www.emoji-cheat-sheet.com/)
 
 ## Contributing
