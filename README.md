@@ -32,6 +32,38 @@ str = Emoji.emojize("Girl on :fire:")
 Emoji.sanitize(str) #=> "Girl on "
 ```
 
+### Regex
+
+```crystal
+require "emoji"
+
+string = "String which contains all kinds of emoji:
+
+- Singleton Emoji: (💎)
+- Textual singleton Emoji with Emoji variation: (▶️)
+- Emoji with skin tone modifier: (🖕🏻)
+- Region flag: (🇺🇦)
+- Sub-Region flag: (🏴󠁧󠁢󠁳󠁣󠁴󠁿)
+- Keycap sequence: (7️⃣)
+- Sequence using ZWJ (zero width joiner): (👨‍👩‍👧‍👦)
+
+"
+
+string.scan(EmojiRegex::REGEX) do |m|
+  puts "`#{m[0]}` - #{m[0].size} code points"
+end
+```
+
+```console
+`💎` - 1 code points
+`▶️` - 2 code points
+`🖐🏼` - 2 code points
+`🇺🇦` - 2 code points
+`🏴󠁧󠁢󠁳󠁣󠁴󠁿` - 7 code points
+`7️⃣` - 3 code points
+`👨‍👩‍👧‍👦` - 7 code points
+```
+
 ### Binary
 
 You may also compile and use `emojize` binary that just prints to console emojized string:
