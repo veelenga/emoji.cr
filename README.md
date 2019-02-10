@@ -41,7 +41,7 @@ string = "String which contains all kinds of emoji:
 
 - Singleton Emoji: (💎)
 - Textual singleton Emoji with Emoji variation: (▶️)
-- Emoji with skin tone modifier: (🖕🏻)
+- Emoji with skin tone modifier: (🖐🏼)
 - Region flag: (🇺🇦)
 - Sub-Region flag: (🏴󠁧󠁢󠁳󠁣󠁴󠁿)
 - Keycap sequence: (7️⃣)
