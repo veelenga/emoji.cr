@@ -220,4 +220,10 @@ emoji_keycap_sequences_regex = data_loader.emoji_keycap_sequences_regex
 emoji_variation_sequences_regex = data_loader.emoji_variation_sequences_regex
 data_codepoints_regex = data_loader.data_codepoints_regex
 
-print "#{emoji_zwj_sequences_regex}|#{emoji_sequences_regex}|#{emoji_tag_sequence_regex}|#{emoji_keycap_sequences_regex}|#{emoji_variation_sequences_regex}|#{data_codepoints_regex}"
+print "#{emoji_zwj_sequences_regex}\
+      |#{emoji_sequences_regex}\
+      |#{emoji_tag_sequence_regex}\
+      |#{emoji_keycap_sequences_regex}\
+      |#{emoji_variation_sequences_regex}\
+      |#{data_codepoints_regex}"
+
