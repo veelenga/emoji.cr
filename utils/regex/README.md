@@ -13,5 +13,5 @@ Generate [spec/emoji/regex_spec.cr](https://github.com/veelenga/emoji.cr/blob/ma
 
 ```console
 cd repository_root
-crystal utils/regex/regex_file_generator.cr
+crystal utils/regex/spec_file_generator.cr
 ```
