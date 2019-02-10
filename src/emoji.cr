@@ -16,6 +16,6 @@ module Emoji
   end
 
   def self.sanitize(s : String)
-    s.gsub(REGEX, "")
+    s.gsub(EMOJI_REGEX, "")
   end
 end

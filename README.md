@@ -49,7 +49,7 @@ string = "String which contains all kinds of emoji:
 
 "
 
-string.scan(EmojiRegex::REGEX) do |m|
+string.scan(Emoji::EMOJI_REGEX) do |m|
   puts "`#{m[0]}` - #{m[0].size} code points"
 end
 ```
