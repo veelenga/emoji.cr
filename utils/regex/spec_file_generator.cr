@@ -5,13 +5,8 @@ macro generate_source(data)
 require "../spec_helper"
 {% for name in data %}
 it "`{{name[0].id}}` ({{name[3].id}}) should match `{{name[2].id}}` ({{name[1].id}})" do
-  if m = "{{name[1].id}}".match(Emoji::EMOJI_REGEX)
-    "{{name[1].id}}".match(Emoji::EMOJI_REGEX).try(&.[0]).should eq "{{name[1].id}}"
-  else
-    fail("`{{name[0].id}}` doesn't match `{{name[2].id}}` ({{name[1].id}})")
-  end
-end
-{% end %}
+  "{{name[1].id}}".match(Emoji::EMOJI_REGEX).try(&.[0]).should eq "{{name[1].id}}"
+end{% end %}
 EOT
 end
 
