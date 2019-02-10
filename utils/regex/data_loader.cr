@@ -226,4 +226,3 @@ print "#{emoji_zwj_sequences_regex}\
       |#{emoji_keycap_sequences_regex}\
       |#{emoji_variation_sequences_regex}\
       |#{data_codepoints_regex}"
-

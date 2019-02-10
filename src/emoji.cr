@@ -7,11 +7,11 @@ module Emoji
 
   def self.emojize(s : String)
     s.scan(/:[^(: )]+?:/).map { |data| data[0] }
-                         .uniq!
-                         .each do |name|
-      code = @@map[name]?
-      s = s.gsub(name, code) if code
-    end
+      .uniq!
+      .each do |name|
+        code = @@map[name]?
+        s = s.gsub(name, code) if code
+      end
     s
   end
 
