@@ -6,7 +6,7 @@ def it_emojizes(from, to)
   end
 end
 
-def it_sanitizes(name, regex, from, to = "")
+def it_sanitizes(name, regex : Emoji::RegexType, from, to = "")
   it "sanitizes '#{name}'" do
     Emoji.sanitize(from, regex).should eq to
   end
@@ -62,12 +62,6 @@ describe "Emoji" do
     Emoji::EMOJI_MAP.each do |key, codepoint|
       it_sanitizes(key, :simple, codepoint)
       it_sanitizes(key, :generated, codepoint)
-    end
-
-    it "reports if wrong regex name is passed" do
-      expect_raises(ArgumentError, "invalid regex name. Use :simple or :generated") do
-        Emoji.sanitize(":soccer:", :bad_name)
-      end
     end
   end
 end
