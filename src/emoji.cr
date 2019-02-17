@@ -6,20 +6,20 @@ module Emoji
 
   @@map = Emoji::EMOJI_MAP
 
-  def self.emojize(s : String)
-    s.scan(/:[^(: )]+?:/).map { |data| data[0] }
+  def self.emojize(text : String)
+    text.scan(/:[^(: )]+?:/).map { |data| data[0] }
       .uniq!
       .each do |name|
         code = @@map[name]?
-        s = s.gsub(name, code) if code
+        text = text.gsub(name, code) if code
       end
-    s
+    text
   end
 
-  def self.sanitize(s : String, regex = :simple)
+  def self.sanitize(text : String, regex = :simple)
     case regex
-    when :simple then s.gsub(EMOJI_REGEX, "")
-    when :generated then s.gsub(GENERATED_EMOJI_REGEX, "")
+    when :simple then text.gsub(EMOJI_REGEX, "")
+    when :generated then text.gsub(GENERATED_EMOJI_REGEX, "")
     else
       raise ArgumentError.new("invalid regex name. Use :simple or :generated")
     end
