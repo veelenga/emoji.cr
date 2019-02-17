@@ -32,6 +32,21 @@ str = Emoji.emojize("Girl on :fire:")
 Emoji.sanitize(str) #=> "Girl on "
 ```
 
+Sanitizing is based on Emoji regex. There are two options available:
+
+- `:simple` emoji regex (default)
+- `:generated` emoji regex
+
+Simple regex uses unicode ranges to find emojis and may give some incorrect results.
+Generated regex is quite big, but works correctly in 100% cases. 
+However, it is much slower than a simple regex. 
+
+If you need more accuracy sanitizing emojis and don't care about performance, just use generated one:
+
+```crystal
+Emoji.sanitize(str, regex: :generated)
+```
+
 ### Regex
 
 ```crystal

@@ -6,7 +6,7 @@ require "../spec_helper"
 
 def it_matches(name)
   it "`\#{name[0]}` (\#{name[3]}) should match `\#{name[2]}` (\#{name[1]})" do
-    name[1].match(Emoji::EMOJI_REGEX).try(&.[0]).should eq name[1]
+    name[1].match(Emoji::GENERATED_EMOJI_REGEX).try(&.[0]).should eq name[1]
   end
 end
 

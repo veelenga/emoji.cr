@@ -6,9 +6,9 @@ def it_emojizes(from, to)
   end
 end
 
-def it_sanitizes(name, from, to = "")
+def it_sanitizes(name, regex : Emoji::RegexType, from, to = "")
   it "sanitizes '#{name}'" do
-    Emoji.sanitize(from).should eq to
+    Emoji.sanitize(from, regex).should eq to
   end
 end
 
@@ -53,14 +53,15 @@ describe "Emoji" do
   end
 
   describe ".sanitize" do
-    it_sanitizes(":soccer:", "⚽ is cool", " is cool")
+    it_sanitizes(":soccer:", :simple, "⚽ is cool", " is cool")
 
     it "does not change regular string" do
       Emoji.sanitize("12 crazy fists!").should eq "12 crazy fists!"
     end
 
     Emoji::EMOJI_MAP.each do |key, codepoint|
-      it_sanitizes(key, "#{codepoint}")
+      it_sanitizes(key, :simple, codepoint)
+      it_sanitizes(key, :generated, codepoint)
     end
   end
 end
