@@ -8,17 +8,17 @@ class Emoji::Regex::DataLoader
   @zwj_sequences_lines : Array(String)
   @variation_sequences_lines : Array(String)
 
-  BASE_URL = "http://unicode.org/Public/emoji/12.0/"
+  BASE_URL = "https://unicode.org"
   # <codepoint(s)> ; <property> # <comments>
   DATA_REGEX = /(?<codepoint>[0-9A-F.]+)\s+;\s+(?<property>\S+)\s*?\#[^\S]*(?<comments>.*)/
   # code_point(s) ; type_field ; description # comments
   SEQUENCES_REGEX = /^(?<codepoints>[0-9A-F ]+?)\s*?;\s+?(?<type_field>.+?)\s*?;(\s+)?(?<description>.+?)\s*?#\s*?(?<comments>.*)/
 
   def initialize
-    @data_lines = read_lines_from_file("emoji-data.txt")
-    @sequences_lines = read_lines_from_file("emoji-sequences.txt")
-    @zwj_sequences_lines = read_lines_from_file("emoji-zwj-sequences.txt")
-    @variation_sequences_lines = read_lines_from_file("emoji-variation-sequences.txt")
+    @data_lines = read_lines_from_file("/Public/13.0.0/ucd/emoji/emoji-data.txt")
+    @variation_sequences_lines = read_lines_from_file("/Public/13.0.0/ucd/emoji/emoji-variation-sequences.txt")
+    @sequences_lines = read_lines_from_file("/Public/emoji/13.0/emoji-sequences.txt")
+    @zwj_sequences_lines = read_lines_from_file("/Public/emoji/13.0/emoji-zwj-sequences.txt")
   end
 
   def data_codepoints_regex
@@ -136,7 +136,7 @@ class Emoji::Regex::DataLoader
 
     sequences_lines.each do |line|
       if m = SEQUENCES_REGEX.match(line)
-        if ["Emoji_Tag_Sequence"].includes?(m["type_field"])
+        if ["RGI_Emoji_Tag_Sequence"].includes?(m["type_field"])
           codepoints = m["codepoints"].split
           tag_spec = codepoints[3..-2]
           tag_specs << tag_spec
@@ -162,7 +162,7 @@ class Emoji::Regex::DataLoader
 
     sequences_lines.each do |line|
       if m = SEQUENCES_REGEX.match(line)
-        if ["Emoji_Flag_Sequence", "Emoji_Modifier_Sequence"].includes?(m["type_field"])
+        if ["RGI_Emoji_Flag_Sequence", "RGI_Emoji_Modifier_Sequence"].includes?(m["type_field"])
           codepoints = m["codepoints"].split
 
           if emoji_sequences.has_key?(codepoints[0])

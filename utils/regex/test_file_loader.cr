@@ -1,7 +1,7 @@
 require "http"
 
-base_url = "http://unicode.org/Public/emoji/12.0/"
-filename = "emoji-test.txt"
+base_url = "https://unicode.org"
+filename = "/Public/emoji/13.0/emoji-test.txt"
 
 response = HTTP::Client.get(base_url + filename)
 
