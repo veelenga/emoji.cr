@@ -50,6 +50,8 @@ describe "Emoji" do
 
     it_emojizes("I :heart: :gem:", "I #{love} #{crystal}")
     it_emojizes(":gem::cat::+1:", "#{crystal}#{cat}#{thumb}")
+
+    it_emojizes(" Here's a sample:\n:+1:\n\n :gem:", " Here's a sample:\n#{thumb}\n\n #{crystal}")
   end
 
   describe ".sanitize" do

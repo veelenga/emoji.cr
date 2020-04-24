@@ -12,7 +12,7 @@ module Emoji
   @@map = Emoji::EMOJI_MAP
 
   def self.emojize(text : String)
-    text.scan(/:[^(: )]+?:/).map { |data| data[0] }
+    text.scan(/:[^(:\s)]+?:/).map { |data| data[0] }
       .uniq!
       .each do |name|
         code = @@map[name]?
