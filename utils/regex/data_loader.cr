@@ -17,8 +17,8 @@ class Emoji::Regex::DataLoader
   def initialize
     @data_lines = read_lines_from_file("/Public/13.0.0/ucd/emoji/emoji-data.txt")
     @variation_sequences_lines = read_lines_from_file("/Public/13.0.0/ucd/emoji/emoji-variation-sequences.txt")
-    @sequences_lines = read_lines_from_file("/Public/emoji/13.0/emoji-sequences.txt")
-    @zwj_sequences_lines = read_lines_from_file("/Public/emoji/13.0/emoji-zwj-sequences.txt")
+    @sequences_lines = read_lines_from_file("/Public/emoji/13.1/emoji-sequences.txt")
+    @zwj_sequences_lines = read_lines_from_file("/Public/emoji/13.1/emoji-zwj-sequences.txt")
   end
 
   def data_codepoints_regex
