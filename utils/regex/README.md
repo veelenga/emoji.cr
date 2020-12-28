@@ -1,8 +1,8 @@
-# Generate source and spec files for Unicode Emoji, Version 13.0
+# Generate source and spec files for Unicode Emoji, Version 13.1
 
 <http://www.unicode.org/reports/tr51/#Emoji_Properties_and_Data_Files>
 
-<https://www.unicode.org/Public/emoji/13.0/ReadMe.txt>
+<https://www.unicode.org/Public/emoji/13.1/ReadMe.txt>
 
 Generate [src/emoji/regex.cr](https://github.com/veelenga/emoji.cr/blob/master/src/emoji/regex.cr):
 
