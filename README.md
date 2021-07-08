@@ -1,4 +1,6 @@
-# emoji.cr [![Build Status](https://travis-ci.org/veelenga/emoji.cr.svg?branch=master)](https://travis-ci.org/veelenga/emoji.cr)
+# emoji.cr
+
+[![Crystal CI](https://github.com/veelenga/emoji.cr/actions/workflows/crystal.yml/badge.svg)](https://github.com/veelenga/emoji.cr/actions/workflows/crystal.yml)
 
 Emoji library for Crystal. Inspired by [Emoji for Python](https://github.com/carpedm20/emoji)
 
@@ -38,8 +40,8 @@ Sanitizing is based on Emoji regex. There are two options available:
 - `:generated` emoji regex
 
 Simple regex uses unicode ranges to find emojis and may give some incorrect results.
-Generated regex is quite big, but works correctly in 100% cases. 
-However, it is much slower than a simple regex. 
+Generated regex is quite big, but works correctly in 100% cases.
+However, it is much slower than a simple regex.
 
 If you need more accuracy sanitizing emojis and don't care about performance, just use generated one:
 
