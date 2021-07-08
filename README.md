@@ -1,6 +1,6 @@
 # emoji.cr
 
-[![Crystal CI](https://github.com/veelenga/emoji.cr/actions/workflows/crystal.yml/badge.svg)](https://github.com/veelenga/emoji.cr/actions/workflows/crystal.yml)
+[![Crystal CI](https://github.com/veelenga/emoji.cr/actions/workflows/crystal.yml/badge.svg?branch=master)](https://github.com/veelenga/emoji.cr/actions/workflows/crystal.yml)
 
 Emoji library for Crystal. Inspired by [Emoji for Python](https://github.com/carpedm20/emoji)
 
