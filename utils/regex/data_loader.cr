@@ -35,9 +35,9 @@ class Emoji::Regex::DataLoader
       end
     end
 
-    data_codepoints_regex = data_codepoints.map_join { |name|
-      name.map_join("-") { |codepoint| escape_hexadecimal(codepoint) }
-    }
+    data_codepoints_regex = data_codepoints.map { |name|
+      name.map { |codepoint| escape_hexadecimal(codepoint) }.join("-")
+    }.join
 
     "[#{data_codepoints_regex}]"
   end
@@ -66,13 +66,13 @@ class Emoji::Regex::DataLoader
     emoji_sequences.each do |k, v|
       io = String::Builder.new
       io << "(?:"
-      io << k.split.push(zwj).map_join { |codepoint| escape_hexadecimal(codepoint) }
+      io << k.split.push(zwj).map { |codepoint| escape_hexadecimal(codepoint) }.join
       io << ")"
 
       io << "(?:"
       array = [] of String
       v.sort_by(&.size).reverse!.each do |vv|
-        array << vv.map_join { |codepoint| escape_hexadecimal(codepoint) }
+        array << vv.map { |codepoint| escape_hexadecimal(codepoint) }.join
       end
       io << array.join("|")
       io << ")"
@@ -103,15 +103,15 @@ class Emoji::Regex::DataLoader
       end
     end
 
-    emoji_regex = emoji_variations.map_join { |codepoint| escape_hexadecimal(codepoint) }
-    text_regex = text_variations.map_join { |codepoint| escape_hexadecimal(codepoint) }
+    emoji_regex = emoji_variations.map { |codepoint| escape_hexadecimal(codepoint) }.join
+    text_regex = text_variations.map { |codepoint| escape_hexadecimal(codepoint) }.join
 
     "(?:[#{emoji_regex}]#{variation_selector}?)|(?:[#{text_regex}]#{variation_selector})"
   end
 
   def emoji_keycap_sequences_regex
     enclosing_keycap = ["FE0F", "20E3"]
-    enclosing_keycap_regex = enclosing_keycap.map_join { |codepoint| escape_hexadecimal(codepoint) }
+    enclosing_keycap_regex = enclosing_keycap.map { |codepoint| escape_hexadecimal(codepoint) }.join
 
     keycaps = [] of String
 
@@ -123,7 +123,7 @@ class Emoji::Regex::DataLoader
       end
     end
 
-    keycaps_regex = keycaps.map_join { |codepoint| escape_hexadecimal(codepoint) }
+    keycaps_regex = keycaps.map { |codepoint| escape_hexadecimal(codepoint) }.join
 
     "(?:[#{keycaps_regex}]#{enclosing_keycap_regex})"
   end
@@ -144,12 +144,12 @@ class Emoji::Regex::DataLoader
       end
     end
 
-    tag_base_regex = tag_base.map_join { |codepoint| escape_hexadecimal(codepoint) }
-    tag_term_regex = tag_term.map_join { |codepoint| escape_hexadecimal(codepoint) }
+    tag_base_regex = tag_base.map { |codepoint| escape_hexadecimal(codepoint) }.join
+    tag_term_regex = tag_term.map { |codepoint| escape_hexadecimal(codepoint) }.join
 
     tag_spec_array = [] of String
     tag_specs.each do |tag|
-      tag_spec_array << tag.map_join { |codepoint| escape_hexadecimal(codepoint) }
+      tag_spec_array << tag.map { |codepoint| escape_hexadecimal(codepoint) }.join
     end
 
     tag_spec_regex = tag_spec_array.join("|")
