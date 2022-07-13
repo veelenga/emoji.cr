@@ -15,10 +15,10 @@ class Emoji::Regex::DataLoader
   SEQUENCES_REGEX = /^(?<codepoints>[0-9A-F ]+?)\s*?;\s+?(?<type_field>.+?)\s*?;(\s+)?(?<description>.+?)\s*?#\s*?(?<comments>.*)/
 
   def initialize
-    @data_lines = read_lines_from_file("/Public/14.0.0/ucd/emoji/emoji-data.txt")
-    @variation_sequences_lines = read_lines_from_file("/Public/14.0.0/ucd/emoji/emoji-variation-sequences.txt")
-    @sequences_lines = read_lines_from_file("/Public/emoji/14.0/emoji-sequences.txt")
-    @zwj_sequences_lines = read_lines_from_file("/Public/emoji/14.0/emoji-zwj-sequences.txt")
+    @data_lines = read_lines_from_file("/Public/15.0.0/ucd/emoji/emoji-data.txt")
+    @variation_sequences_lines = read_lines_from_file("/Public/15.0.0/ucd/emoji/emoji-variation-sequences.txt")
+    @sequences_lines = read_lines_from_file("/Public/emoji/15.0/emoji-sequences.txt")
+    @zwj_sequences_lines = read_lines_from_file("/Public/emoji/15.0/emoji-zwj-sequences.txt")
   end
 
   def data_codepoints_regex
