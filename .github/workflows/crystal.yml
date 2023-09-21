@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Crystal
-        uses: oprypin/install-crystal@v1
+        uses: crystal-lang/install-crystal@v1
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Install dependencies
         run: shards install
       - name: Check format
@@ -23,13 +23,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Crystal
-        uses: oprypin/install-crystal@v1
+        uses: crystal-lang/install-crystal@v1
       - name: Check out repository code
-        uses: actions/checkout@v2
-      - name: Install dependencies
-        run: shards install
-      - name: Check ameba
-        run: ./bin/ameba
+        uses: actions/checkout@v4
+      - name: Crystal Ameba Linter
+        id: crystal-ameba
+        uses: crystal-ameba/github-action@v0.8.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   test:
     strategy:
@@ -39,11 +40,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Crystal
-        uses: oprypin/install-crystal@v1
+        uses: crystal-lang/install-crystal@v1
         with:
           crystal: ${{ matrix.crystal }}
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Install dependencies
         run: shards install
       - name: Run tests
